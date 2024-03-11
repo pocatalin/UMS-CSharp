@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7900fb337ea74d6e88da390b855b212e" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="UMSModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Attendance" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Cours" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Department" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Faculty" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Grade" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Group" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.ProfessorCourseStudent" Width="1.5" PointX="13.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Professor" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.StudentCours" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.Student" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.StudentYear" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UMSModel.YearTable" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="UMSModel.FK__Attendanc__Cours__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Attendanc__Stude__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Attendance__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Courses__Departm__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Courses__Profess__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Grades__CourseID__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Professor__Cours__2FCF1A8A" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__StudentCo__Cours__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Departmen__Facul__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Professor__Depar__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Students__Depart__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Professor__Facul__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Students__Facult__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Grades__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Grades__StudentI__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Grades__StudentI__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Students__GroupN__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Professor__Profe__2EDAF651" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Professor__Stude__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__StudentCo__Stude__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__Students__YearID__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.FK__StudentYe__Stude__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.StudentDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="UMSModel.ProfessorCourses" />
+        <AssociationConnector Association="UMSModel.StudentGroup" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="AttendanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="W1" Type="tinyint" />
+    <Property Name="W2" Type="tinyint" />
+    <Property Name="W3" Type="tinyint" />
+    <Property Name="W4" Type="tinyint" />
+    <Property Name="W5" Type="tinyint" />
+    <Property Name="W6" Type="tinyint" />
+    <Property Name="W7" Type="tinyint" />
+    <Property Name="W8" Type="tinyint" />
+    <Property Name="W9" Type="tinyint" />
+    <Property Name="W10" Type="tinyint" />
+    <Property Name="W11" Type="tinyint" />
+    <Property Name="W12" Type="tinyint" />
+    <Property Name="W13" Type="tinyint" />
+    <Property Name="W14" Type="tinyint" />
+    <Property Name="TotalAttendance" Type="int" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TotalStudents" Type="int" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="ProfessorID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Credits" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TotalStudents" Type="int" />
+    <Property Name="FacultyID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faculties">
+    <Key>
+      <PropertyRef Name="FacultyID" />
+    </Key>
+    <Property Name="FacultyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacultyName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TotalStudents" Type="int" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="GradeID" />
+    </Key>
+    <Property Name="GradeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="LabGrade" Type="int" Nullable="false" />
+    <Property Name="CourseGrade" Type="int" Nullable="false" />
+    <Property Name="FinalGrade" Type="numeric" Precision="13" Scale="0" StoreGeneratedPattern="Computed" />
+    <Property Name="Credits" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="CreditPoints" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="GroupNumber" />
+    </Key>
+    <Property Name="GroupNumber" Type="int" Nullable="false" />
+    <Property Name="TotalStudents" Type="int" />
+  </EntityType>
+  <EntityType Name="ProfessorCourses">
+    <Key>
+      <PropertyRef Name="ProfessorID" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="ProfessorID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfessorCourseStudents">
+    <Key>
+      <PropertyRef Name="ProfessorID" />
+      <PropertyRef Name="CourseID" />
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="ProfessorID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Professors">
+    <Key>
+      <PropertyRef Name="ProfessorID" />
+    </Key>
+    <Property Name="ProfessorID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProfessorPassword" Type="varchar" MaxLength="6" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CNP" Type="bigint" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Age" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="FacultyID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentCourses">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentDepartment">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentGroup">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="GroupNumber" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="GroupNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentPassword" Type="varchar" MaxLength="6" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CNP" Type="bigint" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Age" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RegistrationDate" Type="date" Nullable="false" />
+    <Property Name="FacultyID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="YearID" Type="int" />
+    <Property Name="GroupNumber" Type="int" Nullable="false" />
+    <Property Name="TotalCredits" Type="int" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="StudentYear">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="YearID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="YearID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YearTable">
+    <Key>
+      <PropertyRef Name="YearID" />
+    </Key>
+    <Property Name="YearID" Type="int" Nullable="false" />
+    <Property Name="TotalStudents" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'UMS.dbo.RandomNumberView' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RandomNumberView">
+          <Property Name="RandomNumber" Type="float" />
+        </EntityType>-->
+  <Association Name="FK__Attendanc__Cours__22751F6C">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Attendanc__Stude__2180FB33">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Attendance__236943A5">
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="StudentCourses">
+        <PropertyRef Name="StudentID" />
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="StudentID" />
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Courses__Departm__5629CD9C">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Courses__Profess__571DF1D5">
+    <End Role="Professors" Type="Self.Professors" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professors">
+        <PropertyRef Name="ProfessorID" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="ProfessorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Departmen__Facul__440B1D61">
+    <End Role="Faculties" Type="Self.Faculties" Multiplicity="1" />
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__02084FDA">
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentCourses">
+        <PropertyRef Name="StudentID" />
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="StudentID" />
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__CourseID__01142BA1">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__StudentI__00200768">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grades__StudentI__7F2BE32F">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="Grades">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Cours__2BFE89A6">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="ProfessorCourses" Type="Self.ProfessorCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="ProfessorCourses">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Cours__2FCF1A8A">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="ProfessorCourseStudents" Type="Self.ProfessorCourseStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="ProfessorCourseStudents">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Depar__5070F446">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="Professors" Type="Self.Professors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Professors">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Facul__4F7CD00D">
+    <End Role="Faculties" Type="Self.Faculties" Multiplicity="1" />
+    <End Role="Professors" Type="Self.Professors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="Professors">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Profe__2B0A656D">
+    <End Role="Professors" Type="Self.Professors" Multiplicity="1" />
+    <End Role="ProfessorCourses" Type="Self.ProfessorCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professors">
+        <PropertyRef Name="ProfessorID" />
+      </Principal>
+      <Dependent Role="ProfessorCourses">
+        <PropertyRef Name="ProfessorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Profe__2EDAF651">
+    <End Role="Professors" Type="Self.Professors" Multiplicity="1" />
+    <End Role="ProfessorCourseStudents" Type="Self.ProfessorCourseStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professors">
+        <PropertyRef Name="ProfessorID" />
+      </Principal>
+      <Dependent Role="ProfessorCourseStudents">
+        <PropertyRef Name="ProfessorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Professor__Stude__30C33EC3">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="ProfessorCourseStudents" Type="Self.ProfessorCourseStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="ProfessorCourseStudents">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentCo__Cours__74AE54BC">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="StudentCourses">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentCo__Stude__73BA3083">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentCourses">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentDe__Depar__282DF8C2">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="StudentDepartment" Type="Self.StudentDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="StudentDepartment">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentDe__Stude__2739D489">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="StudentDepartment" Type="Self.StudentDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentDepartment">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentGr__Group__6E01572D">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="GroupNumber" />
+      </Principal>
+      <Dependent Role="StudentGroup">
+        <PropertyRef Name="GroupNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentGr__Stude__6D0D32F4">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="StudentGroup" Type="Self.StudentGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentGroup">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__Depart__60A75C0F">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__Facult__5FB337D6">
+    <End Role="Faculties" Type="Self.Faculties" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__GroupN__628FA481">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="GroupNumber" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="GroupNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__YearID__619B8048">
+    <End Role="YearTable" Type="Self.YearTable" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YearTable">
+        <PropertyRef Name="YearID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="YearID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentYe__Stude__70DDC3D8">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="StudentYear" Type="Self.StudentYear" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentYear">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CalculateAge" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="BirthDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="GenerateRandomPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar" />
+  <Function Name="GetCreditsForCourse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="CourseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTotalCreditsForStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="StudentID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="UMSModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfessorCourses" EntityType="Self.ProfessorCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfessorCourseStudents" EntityType="Self.ProfessorCourseStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Professors" EntityType="Self.Professors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCourses" EntityType="Self.StudentCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentDepartment" EntityType="Self.StudentDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentGroup" EntityType="Self.StudentGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentYear" EntityType="Self.StudentYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YearTable" EntityType="Self.YearTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Attendanc__Cours__22751F6C" Association="Self.FK__Attendanc__Cours__22751F6C">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Attendanc__Stude__2180FB33" Association="Self.FK__Attendanc__Stude__2180FB33">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Attendance__236943A5" Association="Self.FK__Attendance__236943A5">
+      <End Role="StudentCourses" EntitySet="StudentCourses" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Courses__Departm__5629CD9C" Association="Self.FK__Courses__Departm__5629CD9C">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Courses__Profess__571DF1D5" Association="Self.FK__Courses__Profess__571DF1D5">
+      <End Role="Professors" EntitySet="Professors" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Departmen__Facul__440B1D61" Association="Self.FK__Departmen__Facul__440B1D61">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__02084FDA" Association="Self.FK__Grades__02084FDA">
+      <End Role="StudentCourses" EntitySet="StudentCourses" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__CourseID__01142BA1" Association="Self.FK__Grades__CourseID__01142BA1">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__StudentI__00200768" Association="Self.FK__Grades__StudentI__00200768">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grades__StudentI__7F2BE32F" Association="Self.FK__Grades__StudentI__7F2BE32F">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Grades" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Cours__2BFE89A6" Association="Self.FK__Professor__Cours__2BFE89A6">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="ProfessorCourses" EntitySet="ProfessorCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Cours__2FCF1A8A" Association="Self.FK__Professor__Cours__2FCF1A8A">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="ProfessorCourseStudents" EntitySet="ProfessorCourseStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Depar__5070F446" Association="Self.FK__Professor__Depar__5070F446">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Professors" EntitySet="Professors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Facul__4F7CD00D" Association="Self.FK__Professor__Facul__4F7CD00D">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="Professors" EntitySet="Professors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Profe__2B0A656D" Association="Self.FK__Professor__Profe__2B0A656D">
+      <End Role="Professors" EntitySet="Professors" />
+      <End Role="ProfessorCourses" EntitySet="ProfessorCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Profe__2EDAF651" Association="Self.FK__Professor__Profe__2EDAF651">
+      <End Role="Professors" EntitySet="Professors" />
+      <End Role="ProfessorCourseStudents" EntitySet="ProfessorCourseStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Professor__Stude__30C33EC3" Association="Self.FK__Professor__Stude__30C33EC3">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="ProfessorCourseStudents" EntitySet="ProfessorCourseStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentCo__Cours__74AE54BC" Association="Self.FK__StudentCo__Cours__74AE54BC">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="StudentCourses" EntitySet="StudentCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentCo__Stude__73BA3083" Association="Self.FK__StudentCo__Stude__73BA3083">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentCourses" EntitySet="StudentCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentDe__Depar__282DF8C2" Association="Self.FK__StudentDe__Depar__282DF8C2">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="StudentDepartment" EntitySet="StudentDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentDe__Stude__2739D489" Association="Self.FK__StudentDe__Stude__2739D489">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentDepartment" EntitySet="StudentDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentGr__Group__6E01572D" Association="Self.FK__StudentGr__Group__6E01572D">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="StudentGroup" EntitySet="StudentGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentGr__Stude__6D0D32F4" Association="Self.FK__StudentGr__Stude__6D0D32F4">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentGroup" EntitySet="StudentGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__Depart__60A75C0F" Association="Self.FK__Students__Depart__60A75C0F">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__Facult__5FB337D6" Association="Self.FK__Students__Facult__5FB337D6">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__GroupN__628FA481" Association="Self.FK__Students__GroupN__628FA481">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__YearID__619B8048" Association="Self.FK__Students__YearID__619B8048">
+      <End Role="YearTable" EntitySet="YearTable" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentYe__Stude__70DDC3D8" Association="Self.FK__StudentYe__Stude__70DDC3D8">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentYear" EntitySet="StudentYear" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
